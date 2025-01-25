@@ -1,9 +1,11 @@
 import React from 'react'
 import TodoForm from './TodoForm'
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, completeTodo, removeTodo }) => {
   return (
-    <div className="todo" key={todo.id}>
+    <div className="todo" key={todo.id}
+      style={{ textDecoration: todo.isComplet ? "line-through" : "" }}
+    >
       <div className="content">
         <p>{todo.text}</p>
         <p className="category">
@@ -11,8 +13,8 @@ const Todo = ({ todo }) => {
         </p>
       </div>
       <div>
-        <button className='complete' type="button">Completar</button>
-        <button className='remove ' type="button">X</button>
+        <button className='complete' type="button" onClick={() => completeTodo(todo.id)} >Completar</button>
+        <button className='remove ' type="button" onClick={() => removeTodo(todo.id)}>X</button>
       </div>
     </div>
   )
