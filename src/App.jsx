@@ -1,34 +1,73 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Todo from './components/Todo'
+import TodoForm from './components/TodoForm'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      text: "Criar funcionalidade X no React",
+      category: "Trabalho",
+      isComplet: false
+    },
+    {
+      id: 2,
+      text: "Refatorar código do componente Y",
+      category: "Trabalho",
+      isComplet: false
+    },
+    {
+      id: 3,
+      text: "Estudar conceito de hooks no React",
+      category: "Estudo",
+      isComplet: false
+    },
+    {
+      id: 4,
+      text: "Implementar API de autenticação com Node",
+      category: "Trabalho",
+      isComplet: false
+    },
+    {
+      id: 5,
+      text: "Fazer deploy da aplicação no Vercel",
+      category: "Trabalho",
+      isComplet: false
+    },
+    {
+      id: 6,
+      text: "Revisar documentação sobre Redux",
+      category: "Estudo",
+      isComplet: false
+    },
+    {
+      id: 7,
+      text: "Testar integração com a API de pagamentos",
+      category: "Trabalho",
+      isComplet: false
+    },
+    {
+      id: 8,
+      text: "Fazer revisão de código do projeto final",
+      category: "Estudo",
+      isComplet: false
+    }
+  ])
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='app'>
+      <h1>Lista de Tarefas</h1>
+      <div className='todo-list'>
+        {todos.map((todo) => (
+          <Todo todo = {todo}/>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <TodoForm />
+    </div>
   )
 }
 
