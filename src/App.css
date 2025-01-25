@@ -1,12 +1,12 @@
 body{
   background-color: #f4f4f4;
-  padding: 30px;
+  padding: 150px;
   color: #000000;
   font-family: serif;
-  background-image: url(./assets//bg.webp);
+  background-image: url(./assets//bg-notes.jpg);
   background-position: center;
-  font-family: 'Rokkitt';
   background-size: cover;
+  font-family: 'Rokkitt';
 }
 
 .app{
